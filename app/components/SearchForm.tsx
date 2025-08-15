@@ -26,6 +26,9 @@ export default function SearchForm() {
 
   const fetchResults = async (term: string) => {
     if (!term.trim()) return;
+    if (term.length <= 1) {
+      return setResults([]);
+    }
 
     setLoading(true);
     setError("");

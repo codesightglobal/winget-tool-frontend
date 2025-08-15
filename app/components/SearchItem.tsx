@@ -40,7 +40,7 @@ export default function SearchResults({
       // Request file from backend
       const res = await api.post(
         "/template",
-        { id: item.id, name: item.name, organization },
+        { id: item.id, organization },
         { responseType: "blob" }
       );
 
