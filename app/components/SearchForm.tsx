@@ -78,24 +78,6 @@ export default function SearchForm() {
           {/* Search Form */}
           <div className="bg-gray-800 rounded-xl p-8 shadow-2xl border border-gray-700">
             <div className="space-y-6">
-              {/* Search Input */}
-              <div>
-                <label
-                  htmlFor="search"
-                  className="block text-sm font-medium text-gray-300 mb-3"
-                >
-                  Search Packages
-                </label>
-                <input
-                  id="search"
-                  type="text"
-                  placeholder="Enter package name (e.g., VSCode, Chrome, Discord)..."
-                  value={searchTerm}
-                  onChange={handleSearchChange}
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent transition-all duration-200 hover:bg-gray-650"
-                />
-              </div>
-
               {/* Organization Input */}
               <div>
                 <label
@@ -110,6 +92,24 @@ export default function SearchForm() {
                   placeholder="Please provide your company domain (e.g., contoso.com)"
                   value={org}
                   onChange={handleOrgChange}
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent transition-all duration-200 hover:bg-gray-650"
+                />
+              </div>
+
+              {/* Search Input */}
+              <div>
+                <label
+                  htmlFor="search"
+                  className="block text-sm font-medium text-gray-300 mb-3"
+                >
+                  Search Packages
+                </label>
+                <input
+                  id="search"
+                  type="text"
+                  placeholder="Enter package name (e.g., VSCode, Chrome, Discord)..."
+                  value={searchTerm}
+                  onChange={handleSearchChange}
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent transition-all duration-200 hover:bg-gray-650"
                 />
               </div>
