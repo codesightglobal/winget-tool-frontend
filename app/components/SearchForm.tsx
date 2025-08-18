@@ -23,6 +23,8 @@ export default function SearchForm() {
   const [results, setResults] = useState<SearchItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
+  const [showOrgTooltip, setShowOrgTooltip] = useState<boolean>(false);
+  const [showSearchTooltip, setShowSearchTooltip] = useState<boolean>(false);
 
   const fetchResults = async (term: string) => {
     if (!term.trim()) return;
@@ -80,12 +82,39 @@ export default function SearchForm() {
             <div className="space-y-6">
               {/* Organization Input */}
               <div>
-                <label
-                  htmlFor="org"
-                  className="block text-sm font-medium text-gray-300 mb-3"
-                >
-                  Organization Domain
-                </label>
+                <div className="flex items-center mb-3">
+                  <label
+                    htmlFor="org"
+                    className="block text-sm font-medium text-gray-300"
+                  >
+                    Organization Domain
+                  </label>
+                  <div className="relative ml-2">
+                    <svg
+                      className="w-4 h-4 text-gray-400 hover:text-[#017ba8] cursor-help transition-colors"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      onMouseEnter={() => setShowOrgTooltip(true)}
+                      onMouseLeave={() => setShowOrgTooltip(false)}
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    {showOrgTooltip && (
+                      <div className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-72 bg-gray-700 border border-gray-600 text-white text-xs rounded-lg p-3 shadow-lg z-10">
+                        <div className="text-gray-200">
+                          If you put your company name in here, then the package
+                          will store logs in a folder which also includes your
+                          organisation. For example, c:\programdata\contoso\
+                        </div>
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-700"></div>
+                      </div>
+                    )}
+                  </div>
+                </div>
                 <input
                   id="org"
                   type="text"
@@ -98,12 +127,38 @@ export default function SearchForm() {
 
               {/* Search Input */}
               <div>
-                <label
-                  htmlFor="search"
-                  className="block text-sm font-medium text-gray-300 mb-3"
-                >
-                  Search Packages
-                </label>
+                <div className="flex items-center mb-3">
+                  <label
+                    htmlFor="search"
+                    className="block text-sm font-medium text-gray-300"
+                  >
+                    Search Packages
+                  </label>
+                  <div className="relative ml-2">
+                    <svg
+                      className="w-4 h-4 text-gray-400 hover:text-[#017ba8] cursor-help transition-colors"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      onMouseEnter={() => setShowSearchTooltip(true)}
+                      onMouseLeave={() => setShowSearchTooltip(false)}
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    {showSearchTooltip && (
+                      <div className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-64 bg-gray-700 border border-gray-600 text-white text-xs rounded-lg p-3 shadow-lg z-10">
+                        <div className="text-gray-200">
+                          Enter the name of an application to search for a
+                          Winget package.
+                        </div>
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-700"></div>
+                      </div>
+                    )}
+                  </div>
+                </div>
                 <input
                   id="search"
                   type="text"
