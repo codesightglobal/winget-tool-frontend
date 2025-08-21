@@ -41,6 +41,7 @@ export default function SearchForm() {
       setResults(res.data.data.packages);
     } catch (err) {
       console.error(err);
+      setResults([]);
       setError("Something went wrong while fetching results.");
     }
     setLoading(false);
