@@ -9,6 +9,7 @@ interface SearchItem {
   id: string;
   name: string;
   publisher?: string;
+  version?: string;
   lastUpdated: string;
 }
 
@@ -38,6 +39,7 @@ export default function SearchForm() {
       const res = await api.get("/search", {
         params: { q: term },
       });
+      console.log(res.data.data.packages);
       setResults(res.data.data.packages);
     } catch (err) {
       console.error(err);
