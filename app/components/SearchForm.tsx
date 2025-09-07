@@ -64,28 +64,33 @@ export default function SearchForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <div className="container mx-auto px-6 py-12">
+    <div className="bg-gray-50 text-gray-900">
+      <div className="container mx-auto px-6 py-16">
         <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4 text-white">
-              🔍 <span className="text-[#017ba8]">WinGet</span> Package Search
+          {/* Hero Section */}
+          <div className="text-center mb-16">
+            <h1 className="text-5xl font-bold mb-6 text-gray-900">
+              Manage packages.
+              <br />
+              <span className="text-[#017ba8]">Modernise</span> your Workplace.
+              <br />
+              Empower your users.
             </h1>
-            <p className="text-gray-400 text-lg">
-              Discover and download Windows packages with ease
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Discover and download Windows packages with ease using our
+              comprehensive WinGet package search tool.
             </p>
           </div>
 
           {/* Search Form */}
-          <div className="bg-gray-800 rounded-xl p-8 shadow-2xl border border-gray-700">
-            <div className="space-y-6">
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+            <div className="space-y-8">
               {/* Organization Input */}
               <div>
-                <div className="flex items-center mb-3">
+                <div className="flex items-center mb-4">
                   <label
                     htmlFor="org"
-                    className="block text-sm font-medium text-gray-300"
+                    className="block text-sm font-semibold text-gray-700"
                   >
                     Organization Domain
                   </label>
@@ -121,7 +126,7 @@ export default function SearchForm() {
                   placeholder="Please provide your company domain (e.g., contoso.com)"
                   value={org}
                   onChange={handleOrgChange}
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent transition-all duration-200 hover:bg-gray-650"
+                  className="w-full px-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent transition-all duration-200 hover:border-gray-300"
                 />
               </div>
 
@@ -130,7 +135,7 @@ export default function SearchForm() {
                 <div className="flex items-center mb-3">
                   <label
                     htmlFor="search"
-                    className="block text-sm font-medium text-gray-300"
+                    className="block text-sm font-semibold text-gray-700"
                   >
                     Search Packages
                   </label>
@@ -165,7 +170,7 @@ export default function SearchForm() {
                   placeholder="Enter package name (e.g., VSCode, Chrome, Discord)..."
                   value={searchTerm}
                   onChange={handleSearchChange}
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent transition-all duration-200 hover:bg-gray-650"
+                  className="w-full px-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent transition-all duration-200 hover:border-gray-300"
                 />
               </div>
             </div>
@@ -173,10 +178,10 @@ export default function SearchForm() {
 
           {/* Loading State */}
           {loading && (
-            <div className="flex items-center justify-center mt-8">
+            <div className="flex items-center justify-center mt-12">
               <div className="flex items-center space-x-3">
                 <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-[#017ba8]"></div>
-                <p className="text-[#017ba8] font-medium">
+                <p className="text-[#017ba8] font-medium text-lg">
                   Searching packages...
                 </p>
               </div>
@@ -185,10 +190,10 @@ export default function SearchForm() {
 
           {/* Error State */}
           {error && (
-            <div className="mt-8 bg-red-900/50 border border-red-700 rounded-lg p-4">
-              <p className="text-red-300 flex items-center">
+            <div className="mt-12 bg-red-50 border border-red-200 rounded-xl p-6">
+              <p className="text-red-700 flex items-center">
                 <svg
-                  className="w-5 h-5 mr-2"
+                  className="w-5 h-5 mr-3"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -205,10 +210,10 @@ export default function SearchForm() {
 
           {/* Results */}
           {results && !loading && (
-            <div className="mt-8">
-              <h2 className="text-2xl font-semibold mb-6 text-white">
+            <div className="mt-12">
+              <h2 className="text-3xl font-bold mb-8 text-gray-900">
                 Search Results{" "}
-                <span className="text-gray-400 text-lg">
+                <span className="text-gray-500 text-xl font-normal">
                   ({results.length} found)
                 </span>
               </h2>

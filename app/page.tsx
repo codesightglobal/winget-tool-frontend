@@ -1,9 +1,13 @@
 import SearchForm from "./components/SearchForm";
+import Header from "./components/Header";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-900">
-      <SearchForm />
-    </main>
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      <main>
+        <SearchForm />
+      </main>
+    </div>
   );
 }
