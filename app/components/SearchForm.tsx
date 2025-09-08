@@ -72,14 +72,14 @@ export default function SearchForm() {
         <div className="max-w-4xl mx-auto">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold mb-6 text-gray-900">
+            <h1 className="text-5xl font-bold mb-6 text-gray-900 manrope-regular">
               Manage packages.
               <br />
               <span className="text-[#017ba8]">Modernise</span> your Workplace.
               <br />
               Empower your users.
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed manrope-regular">
               Discover and download Windows packages with ease using our
               comprehensive WinGet package search tool.
             </p>
