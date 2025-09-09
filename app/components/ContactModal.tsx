@@ -159,7 +159,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       htmlFor="company"
                       className="block text-sm font-semibold text-gray-700 mb-2"
                     >
-                      Company/Organization
+                      Company/Organisation
                     </label>
                     <input
                       type="text"

@@ -9,7 +9,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Winget Tool | Sistena Ltd",
+  title: "Intune Packager | Sistena Ltd",
   description: "",
   icons: {
     icon: "/favicon.png", // path from public folder

@@ -13,7 +13,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-38">
             {/* Logo */}
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              <a className="flex-shrink-0" href="https://www.sistena.co.uk/">
                 <img
                   decoding="async"
                   src="https://www.sistena.co.uk/wp-content/uploads/2021/12/sistena-new-web-logo.png"
@@ -24,7 +24,7 @@ export default function Header() {
                   className="img-responsive fusion-standard-logo disable-lazyload"
                   alt="Sistena Ltd Logo"
                 />
-              </div>
+              </a>
             </div>
 
             {/* Desktop Navigation */}

@@ -81,7 +81,7 @@ export default function SearchForm() {
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed manrope-regular">
               Discover and download Windows packages with ease using our
-              comprehensive WinGet package search tool.
+              comprehensive Intune Package search tool.
             </p>
           </div>
 
@@ -95,7 +95,7 @@ export default function SearchForm() {
                     htmlFor="org"
                     className="block text-sm font-semibold text-gray-700"
                   >
-                    Organization Domain
+                    Organisation Domain
                   </label>
                   <div className="relative ml-2">
                     <svg
