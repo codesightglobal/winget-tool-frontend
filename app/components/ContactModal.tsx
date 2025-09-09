@@ -13,28 +13,30 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     email: "",
     phone: "",
     company: "",
-    message: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      
+
       // Reset form after 2 seconds and close modal
       setTimeout(() => {
         setIsSubmitted(false);
@@ -43,7 +45,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           email: "",
           phone: "",
           company: "",
-          message: ""
+          message: "",
         });
         onClose();
       }, 2000);
@@ -61,8 +63,18 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 transition-colors"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
@@ -75,15 +87,19 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   Managed Application Packaging Service for Microsoft Intune
                 </h3>
                 <p className="text-gray-600">
-                  Get in touch with our team for inquiries about our managed application packaging services. 
-                  We'll help you streamline your application deployment process with Microsoft Intune.
+                  Get in touch with our team for inquiries about our managed
+                  application packaging services. We'll help you streamline your
+                  application deployment process with Microsoft Intune.
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -99,7 +115,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -117,7 +136,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Phone Number *
                     </label>
                     <input
@@ -133,7 +155,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="company"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Company/Organization
                     </label>
                     <input
@@ -149,7 +174,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
                     How can we help you?
                   </label>
                   <textarea
@@ -164,7 +192,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </div>
 
                 <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-                  <h4 className="font-semibold text-blue-900 mb-2">Our Services Include:</h4>
+                  <h4 className="font-semibold text-blue-900 mb-2">
+                    Our Services Include:
+                  </h4>
                   <ul className="text-sm text-blue-800 space-y-1">
                     <li>• Custom application packaging for Microsoft Intune</li>
                     <li>• Application testing and validation</li>
@@ -201,13 +231,26 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           ) : (
             <div className="text-center py-8">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-8 h-8 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent Successfully!</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Message Sent Successfully!
+              </h3>
               <p className="text-gray-600">
-                Thank you for your inquiry. Our team will get back to you within 24 hours.
+                Thank you for your inquiry. Our team will get back to you within
+                24 hours.
               </p>
             </div>
           )}

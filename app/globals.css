@@ -5,11 +5,10 @@
   --foreground: #171717;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-family-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: light) {
@@ -22,17 +21,10 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
 
-.prata-regular {
-  font-family: "Prata", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.manrope-regular {
-  font-family: "Manrope", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+/* Manrope font utility classes */
+.font-manrope {
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }

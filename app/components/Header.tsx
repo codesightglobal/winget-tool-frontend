@@ -12,14 +12,14 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <img 
-                decoding="async" 
-                src="https://www.sistena.co.uk/wp-content/uploads/2021/12/sistena-new-web-logo.png" 
-                srcSet="https://www.sistena.co.uk/wp-content/uploads/2021/12/sistena-new-web-logo.png 1x, https://www.sistena.co.uk/wp-content/uploads/2021/12/sistena-new-web-logo-x.png 2x" 
-                style={{maxHeight: '49px', height: 'auto'}} 
-                width="200" 
-                height="49" 
-                className="img-responsive fusion-standard-logo disable-lazyload" 
+              <img
+                decoding="async"
+                src="https://www.sistena.co.uk/wp-content/uploads/2021/12/sistena-new-web-logo.png"
+                srcSet="https://www.sistena.co.uk/wp-content/uploads/2021/12/sistena-new-web-logo.png 1x, https://www.sistena.co.uk/wp-content/uploads/2021/12/sistena-new-web-logo-x.png 2x"
+                style={{ maxHeight: "49px", height: "auto" }}
+                width="200"
+                height="49"
+                className="img-responsive fusion-standard-logo disable-lazyload"
                 alt="Sistena Ltd Logo"
               />
             </div>
@@ -30,37 +30,35 @@ export default function Header() {
             <div className="flex items-center space-x-18">
               <a
                 href="https://www.sistena.co.uk/"
-               className="text-[#023A51] px-3 py-3 text-lg font-medium transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-[#017BAB] after:left-0 after:bottom-0 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
+                className="text-[#023a51] px-3 py-3 text-[18px] font-semibold transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-[#017BAB] after:left-0 after:bottom-0 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
               >
                 Home
               </a>
               <div className="relative group">
                 <a
                   href="https://www.sistena.co.uk/services/"
-                  className="text-[#023A51] px-3 py-3 text-lg font-medium transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-[#017BAB] after:left-0 after:bottom-0 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
+                  className="text-[#023a51] px-3 py-3 text-[18px] font-semibold transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-[#017BAB] after:left-0 after:bottom-0 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
                 >
                   Our Services
-                  
                 </a>
               </div>
               <div className="relative group">
                 <a
                   href="https://www.sistena.co.uk/winget-tool/"
-                  className="text-[#023A51] px-3 py-3 text-lg font-medium transition-colors duration-200 flex items-center relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-[#017BAB] after:left-0 after:bottom-0 after:scale-x-100 after:origin-center after:transition-transform after:duration-300"
+                  className="text-[#023a51] px-3 py-3 text-[18px] font-semibold transition-colors duration-200 flex items-center relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-[#017BAB] after:left-0 after:bottom-0 after:scale-x-100 after:origin-center after:transition-transform after:duration-300"
                 >
                   Tools
-                 
                 </a>
               </div>
               <a
                 href="https://www.sistena.co.uk/about/"
-                className="text-[#023A51] px-3 py-3 text-lg font-medium transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-[#017BAB] after:left-0 after:bottom-0 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
+                className="text-[#023a51] px-3 py-3 text-[18px] font-semibold transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-[#017BAB] after:left-0 after:bottom-0 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
               >
                 About Us
               </a>
               <a
                 href="https://www.sistena.co.uk/news/"
-                className="text-[#023A51] px-3 py-3 text-lg font-medium transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-[#017BAB] after:left-0 after:bottom-0 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
+                className="text-[#023a51] px-3 py-3 text-[18px] font-semibold transition-colors duration-200 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-[#017BAB] after:left-0 after:bottom-0 after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
               >
                 News
               </a>
