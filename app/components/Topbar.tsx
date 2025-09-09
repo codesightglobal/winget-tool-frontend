@@ -2,24 +2,21 @@
 
 export default function Topbar() {
   return (
-    <div className="bg-[#E0ECF0] text-[#023a51] py-2 border-b border-[#d1dee3] hidden lg:block">
-      <div className="container mx-auto px-6">
+    <div className="bg-[#E0ECF0] text-[#023a51] py-4 border-b border-[#d1dee3] hidden lg:block">
+      <div className="container mx-auto">
         {/* Topbar content aligned with navigation area */}
         <div className="flex items-center">
-          {/* Spacer to align with logo width */}
-          <div className="flex-shrink-0" style={{ width: "200px" }}></div>
-
           {/* Main topbar content - aligned between navigation and "Let's Talk" button */}
           <div className="flex-1 flex items-center justify-between">
             {/* Left side - Three square buttons */}
             <div className="flex items-center space-x-4">
-              <button className="bg-[#017BAB]/20 hover:bg-[#017BAB]/30 text-[#023a51] hover:text-[#015d85] px-4 py-2 rounded text-sm font-medium transition-colors duration-200 border border-[#017BAB]/30">
+              <button className="hover:bg-white text-[#023a51] hover:text-[#015d85] px-2 py-2 rounded text-[12px] font-bold transition-colors duration-200 uppercase">
                 Offices
               </button>
-              <button className="bg-[#017BAB]/20 hover:bg-[#017BAB]/30 text-[#023a51] hover:text-[#015d85] px-4 py-2 rounded text-sm font-medium transition-colors duration-200 border border-[#017BAB]/30">
+              <button className="hover:bg-white text-[#023a51] hover:text-[#015d85] px-2 py-2 rounded text-[12px] font-bold transition-colors duration-200 uppercase">
                 Careers
               </button>
-              <button className="bg-[#017BAB]/20 hover:bg-[#017BAB]/30 text-[#023a51] hover:text-[#015d85] px-4 py-2 rounded text-sm font-medium transition-colors duration-200 border border-[#017BAB]/30">
+              <button className="hover:bg-white text-[#023a51] hover:text-[#015d85] px-2 py-2 rounded text-[12px] font-bold transition-colors duration-200 uppercase">
                 FAQs
               </button>
             </div>
@@ -39,7 +36,7 @@ export default function Topbar() {
                 </svg>
                 +44 123 456 7890
               </a>
-              <button className="bg-[#017BAB]/20 hover:bg-[#017BAB]/30 text-[#023a51] hover:text-[#015d85] px-4 py-2 rounded text-sm font-medium transition-colors duration-200 flex items-center border border-[#017BAB]/30">
+              <button className="hover:bg-white text-[#023a51] hover:text-[#015d85] px-4 py-2 rounded text-sm font-medium transition-colors duration-200 flex items-center">
                 <svg
                   className="w-4 h-4 mr-2"
                   fill="none"

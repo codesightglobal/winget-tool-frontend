@@ -18,7 +18,7 @@ export default function InstructionsModal({
       <div className="bg-white rounded-2xl max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl">
         <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center rounded-t-2xl">
           <h2 className="text-2xl font-bold text-gray-900">
-            How to Use the WinGet Package Tool
+            Using Sistena Intune Packager Tool for Winget
           </h2>
           <button
             onClick={onClose}
@@ -40,170 +40,263 @@ export default function InstructionsModal({
           </button>
         </div>
 
-        <div className="px-6 py-6 space-y-6">
-          {/* Getting Started */}
-          <section>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              Getting Started
-            </h3>
-            <p className="text-gray-700 mb-4">
-              Welcome to the WinGet Package Tool! This platform helps you
-              discover, download, and deploy Windows applications through
-              Microsoft's Windows Package Manager (WinGet) for Microsoft Intune
-              managed environments.
-            </p>
-          </section>
-
-          {/* Step-by-step Instructions */}
-          <section>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              Step-by-Step Instructions
-            </h3>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-6 h-6 bg-[#017ba8] text-white rounded-full flex items-center justify-center text-sm font-semibold">
-                  1
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">
-                    Enter Your Organization Domain
-                  </h4>
-                  <p className="text-gray-700">
-                    Start by entering your company's domain name (e.g.,
-                    contoso.com) in the Organization Domain field. This helps
-                    organize package logs and ensures proper deployment tracking
-                    within your organization.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-6 h-6 bg-[#017ba8] text-white rounded-full flex items-center justify-center text-sm font-semibold">
-                  2
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">
-                    Search for Applications
-                  </h4>
-                  <p className="text-gray-700">
-                    Use the search field to find the applications you need.
-                    Enter the application name (e.g., "Chrome", "VSCode",
-                    "Teams") and our tool will search the WinGet repository for
-                    matching packages.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-6 h-6 bg-[#017ba8] text-white rounded-full flex items-center justify-center text-sm font-semibold">
-                  3
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">
-                    Review Search Results
-                  </h4>
-                  <p className="text-gray-700">
-                    Browse through the search results to find the exact
-                    application and version you need. Each result shows the
-                    publisher, version, and last update information.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-6 h-6 bg-[#017ba8] text-white rounded-full flex items-center justify-center text-sm font-semibold">
-                  4
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">
-                    Download and Deploy
-                  </h4>
-                  <p className="text-gray-700">
-                    Select the package you want and use the provided deployment
-                    information to integrate it with Microsoft Intune for
-                    distribution across your managed devices.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Best Practices */}
-          <section>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              Best Practices
-            </h3>
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex items-start space-x-2">
-                <span className="text-[#017ba8] font-semibold">•</span>
-                <span>
-                  Always verify the publisher and version before deploying
-                  packages
-                </span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <span className="text-[#017ba8] font-semibold">•</span>
-                <span>
-                  Test packages in a small group before organization-wide
-                  deployment
-                </span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <span className="text-[#017ba8] font-semibold">•</span>
-                <span>
-                  Keep your organization domain consistent across all package
-                  deployments
-                </span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <span className="text-[#017ba8] font-semibold">•</span>
-                <span>
-                  Regularly check for package updates to maintain security and
-                  functionality
-                </span>
-              </li>
-            </ul>
-          </section>
-
-          {/* Troubleshooting */}
-          <section>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              Troubleshooting
-            </h3>
-            <div className="space-y-3">
-              <div>
-                <h4 className="font-semibold text-gray-900">
-                  No search results found?
-                </h4>
-                <p className="text-gray-700">
-                  Try using different search terms, check spelling, or search
-                  for the publisher name instead of the product name.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900">
-                  Package deployment issues?
-                </h4>
-                <p className="text-gray-700">
-                  Ensure your Microsoft Intune configuration is correct and that
-                  you have the necessary permissions for app deployment.
+        <main className="bg-gray-50 text-gray-900 min-h-screen py-8">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Header */}
+            <div className="bg-white shadow-sm border border-gray-200 rounded-lg mb-8">
+              <div className="px-6 py-6 border-b border-gray-200">
+                <p className="text-lg text-gray-600">
+                  Step-by-step instructions for completing the form
                 </p>
               </div>
             </div>
-          </section>
 
-          {/* Support */}
-          <section className="bg-gray-50 rounded-xl p-4">
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              Need Additional Help?
-            </h3>
-            <p className="text-gray-700">
-              If you need further assistance with the Managed Application
-              Packaging Service for Microsoft Intune, please use the "Contact
-              Us" button to get in touch with our support team.
-            </p>
-          </section>
-        </div>
+            {/* Step 1 */}
+            <div className="bg-white shadow-sm border border-gray-200 rounded-lg mb-6">
+              <div className="px-6 py-6">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full text-sm font-medium">
+                      1
+                    </div>
+                  </div>
+                  <div className="ml-4 flex-1">
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                      Enter Your Company Domain
+                    </h2>
+                    <ul className="space-y-3 text-gray-700">
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2 mt-1.5">•</span>
+                        <span>
+                          Locate the box labeled &quot;Domain&quot; on the form.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2 mt-1.5">•</span>
+                        <span>
+                          In this box, type your company&apos;s domain name (for
+                          example:{" "}
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">
+                            contoso.com
+                          </code>
+                          ).
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2 mt-1.5">•</span>
+                        <span>
+                          Please make sure to use the same format as shown in
+                          the example—do not include &quot;www&quot; or
+                          &quot;https://&quot;.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="bg-white shadow-sm border border-gray-200 rounded-lg mb-6">
+              <div className="px-6 py-6">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full text-sm font-medium">
+                      2
+                    </div>
+                  </div>
+                  <div className="ml-4 flex-1">
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                      Enter Your App ID
+                    </h2>
+                    <ul className="space-y-3 text-gray-700">
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2 mt-1.5">•</span>
+                        <span>
+                          Find the next box on the form, usually labeled
+                          &quot;App ID&quot; or &quot;Application ID&quot;.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2 mt-1.5">•</span>
+                        <span>
+                          If you already know your app&apos;s ID, simply type it
+                          into the box.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-600 mr-2 mt-1.5">•</span>
+                        <span>
+                          If you do not know your app&apos;s ID, follow these
+                          steps:
+                        </span>
+                      </li>
+                    </ul>
+
+                    <div className="mt-4 ml-6 space-y-3">
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 mt-1.5">◦</span>
+                        <span className="text-gray-700">
+                          Open the <strong>Command Prompt</strong> (press{" "}
+                          <kbd className="bg-gray-100 px-2 py-1 rounded text-sm">
+                            Windows
+                          </kbd>{" "}
+                          key, type{" "}
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">
+                            cmd
+                          </code>
+                          , and press{" "}
+                          <kbd className="bg-gray-100 px-2 py-1 rounded text-sm">
+                            Enter
+                          </kbd>
+                          ).
+                        </span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 mt-1.5">◦</span>
+                        <span className="text-gray-700">
+                          In the Command Prompt window, type:
+                        </span>
+                      </div>
+                      <div className="ml-6">
+                        <code className="block bg-gray-900 text-gray-100 p-3 rounded font-mono text-sm">
+                          winget search [app name]
+                        </code>
+                        <p className="text-sm text-gray-600 mt-2">
+                          (for example:{" "}
+                          <code className="bg-gray-100 px-2 py-1 rounded font-mono">
+                            winget search Notepad++
+                          </code>
+                          )
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 mt-1.5">◦</span>
+                        <span className="text-gray-700">
+                          Press{" "}
+                          <kbd className="bg-gray-100 px-2 py-1 rounded text-sm">
+                            Enter
+                          </kbd>
+                          .
+                        </span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 mt-1.5">◦</span>
+                        <span className="text-gray-700">
+                          Find your application&apos;s name in the list that
+                          appears. The <strong>ID</strong> will be shown in the
+                          &quot;Id&quot; column next to your app&apos;s name.
+                        </span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 mt-1.5">◦</span>
+                        <span className="text-gray-700">
+                          Copy this ID and paste or type it into the &quot;App
+                          ID&quot; box on the form.
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Example Section */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg mb-6">
+              <div className="px-6 py-6">
+                <h3 className="text-lg font-semibold text-blue-900 mb-4">
+                  Example
+                </h3>
+                <p className="text-blue-800 mb-4">
+                  If your company domain is <strong>contoso.com</strong> and
+                  your app is Notepad++, you would enter:
+                </p>
+                <div className="space-y-2">
+                  <div className="bg-white p-3 rounded border">
+                    <span className="font-medium text-gray-700">Domain:</span>
+                    <code className="ml-2 font-mono">contoso.com</code>
+                  </div>
+                  <div className="bg-white p-3 rounded border">
+                    <span className="font-medium text-gray-700">App ID:</span>
+                    <code className="ml-2 font-mono">Notepad++.Notepad++</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="bg-white shadow-sm border border-gray-200 rounded-lg mb-6">
+              <div className="px-6 py-6">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full text-sm font-medium">
+                      3
+                    </div>
+                  </div>
+                  <div className="ml-4 flex-1">
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                      Selecting Your App
+                    </h2>
+                    <p className="text-gray-700 mb-4">
+                      Look through the list of apps that now shows and select
+                      the one you require. This will download the whole package
+                      ready for intunewinapputil.exe, which can be found at{" "}
+                      <a
+                        href="https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 underline hover:text-blue-800"
+                      >
+                        https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool
+                      </a>
+                      .
+                    </p>
+                    <p className="text-gray-700">
+                      Your zip file now includes the instructions for any
+                      changes you might need to make such as version (if you
+                      specify a version by changing the –Version switch from
+                      latest it will prevent automatic updates to the app until
+                      you specify a higher version or Latest again).
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Tips Section */}
+            <div className="bg-amber-50 border border-amber-200 rounded-lg">
+              <div className="px-6 py-6">
+                <h3 className="text-lg font-semibold text-amber-900 mb-4">
+                  Tips
+                </h3>
+                <ul className="space-y-3 text-amber-800">
+                  <li className="flex items-start">
+                    <span className="text-amber-600 mr-2 mt-1.5">•</span>
+                    <span>
+                      Double-check your entries for accuracy before submitting
+                      the form.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-amber-600 mr-2 mt-1.5">•</span>
+                    <span>
+                      If you have any issues or cannot find your app&apos;s ID,
+                      contact your IT administrator for assistance.
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-amber-600 mr-2 mt-1.5">•</span>
+                    <span>
+                      If the app doesn&apos;t appear in the search, then it
+                      either does not exist in the Winget Catalogue, or it has
+                      been entered incorrectly.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   );
