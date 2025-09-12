@@ -87,7 +87,7 @@ export default function InstructionsModal({
                         <span>
                           Please make sure to use the same format as shown in
                           the example—do not include &quot;www&quot; or
-                          &quot;https://&quot;.
+                          &quot;[URL]&quot;.
                         </span>
                       </li>
                     </ul>
@@ -127,75 +127,11 @@ export default function InstructionsModal({
                       <li className="flex items-start">
                         <span className="text-blue-600 mr-2 mt-1.5">•</span>
                         <span>
-                          If you do not know your app&apos;s ID, follow these
-                          steps:
+                          If you do not know your app&apos;s ID, Type the name
+                          in the search box
                         </span>
                       </li>
                     </ul>
-
-                    <div className="mt-4 ml-6 space-y-3">
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 mt-1.5">◦</span>
-                        <span className="text-gray-700">
-                          Open the <strong>Command Prompt</strong> (press{" "}
-                          <kbd className="bg-gray-100 px-2 py-1 rounded text-sm">
-                            Windows
-                          </kbd>{" "}
-                          key, type{" "}
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">
-                            cmd
-                          </code>
-                          , and press{" "}
-                          <kbd className="bg-gray-100 px-2 py-1 rounded text-sm">
-                            Enter
-                          </kbd>
-                          ).
-                        </span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 mt-1.5">◦</span>
-                        <span className="text-gray-700">
-                          In the Command Prompt window, type:
-                        </span>
-                      </div>
-                      <div className="ml-6">
-                        <code className="block bg-gray-900 text-gray-100 p-3 rounded font-mono text-sm">
-                          winget search [app name]
-                        </code>
-                        <p className="text-sm text-gray-600 mt-2">
-                          (for example:{" "}
-                          <code className="bg-gray-100 px-2 py-1 rounded font-mono">
-                            winget search Notepad++
-                          </code>
-                          )
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 mt-1.5">◦</span>
-                        <span className="text-gray-700">
-                          Press{" "}
-                          <kbd className="bg-gray-100 px-2 py-1 rounded text-sm">
-                            Enter
-                          </kbd>
-                          .
-                        </span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 mt-1.5">◦</span>
-                        <span className="text-gray-700">
-                          Find your application&apos;s name in the list that
-                          appears. The <strong>ID</strong> will be shown in the
-                          &quot;Id&quot; column next to your app&apos;s name.
-                        </span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 mt-1.5">◦</span>
-                        <span className="text-gray-700">
-                          Copy this ID and paste or type it into the &quot;App
-                          ID&quot; box on the form.
-                        </span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
