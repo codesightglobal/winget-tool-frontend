@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
+      {/* <Header /> */}
       <main>
         {/* Action Buttons */}
         <div className="container mx-auto px-6 pt-8">
