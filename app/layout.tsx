@@ -38,11 +38,10 @@ export default function RootLayout({
             window.parent.postMessage({ height: height }, '*');
           }
 
-          if (window.self !== window.top) { // optional: only run inside iframe
-            window.addEventListener('load', sendHeight);
-            window.addEventListener('resize', sendHeight);
-            setInterval(sendHeight, 500);
-          }
+          window.addEventListener('load', sendHeight);
+          window.addEventListener('resize', sendHeight);
+          // Call periodically if content changes dynamically
+          setInterval(sendHeight, 500);
           `}
         </Script>
       </body>
