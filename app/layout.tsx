@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 
+import Script from "next/script";
+
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
@@ -25,6 +27,24 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${manrope.variable} antialiased font-sans`}>
         {children}
+
+        <Script id="global-send-height" strategy="afterInteractive">
+          {`
+          function sendHeight() {
+            const height = Math.max(
+              document.body.scrollHeight,
+              document.documentElement.scrollHeight
+            );
+            window.parent.postMessage({ height: height }, '*');
+          }
+
+          if (window.self !== window.top) { // optional: only run inside iframe
+            window.addEventListener('load', sendHeight);
+            window.addEventListener('resize', sendHeight);
+            setInterval(sendHeight, 500);
+          }
+          `}
+        </Script>
       </body>
     </html>
   );
