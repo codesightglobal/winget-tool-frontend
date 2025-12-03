@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, ChangeEvent } from "react";
-import api from "../lib/axios.js";
+import api from "../lib/axios";
 import SearchResults from "./SearchItem";
 import debounce from "lodash/debounce";
 

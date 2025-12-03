@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import api from "../lib/axios.js";
+import api from "../lib/axios";
 
 interface SearchItem {
   id: string;
