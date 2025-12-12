@@ -10,12 +10,21 @@ interface PackageVersion {
   lastUpdated: string;
 }
 
+interface BackendPackage {
+  id: string;
+  name: string;
+  publisher?: string;
+  version?: string;
+  versions?: string[];
+  lastUpdated: string;
+}
+
 interface SearchItem {
   id: string;
   name: string;
   publisher?: string;
-  version?: string; // Keep for backward compatibility with current backend
-  versions?: PackageVersion[]; // New: array of versions from updated backend
+  version?: string;
+  versions?: PackageVersion[]; // Frontend uses array of version objects
   lastUpdated: string;
 }
 
@@ -46,7 +55,30 @@ export default function SearchForm() {
         params: { q: term },
       });
       console.log(res.data.data.packages);
-      setResults(res.data.data.packages);
+
+      // Transform backend response: convert versions array from strings to objects
+      const transformedPackages: SearchItem[] = res.data.data.packages.map(
+        (pkg: BackendPackage) => {
+          if (pkg.versions && pkg.versions.length > 0) {
+            // Convert string array to object array with version and lastUpdated
+            const versionObjects: PackageVersion[] = pkg.versions.map(
+              (v: string, index: number) => ({
+                version: v,
+                lastUpdated: pkg.lastUpdated, // Use package's lastUpdated or generate dates
+              })
+            );
+
+            return {
+              ...pkg,
+              versions: versionObjects,
+            };
+          }
+          return pkg as SearchItem;
+        }
+      );
+
+      console.log("Transformed packages:", transformedPackages);
+      setResults(transformedPackages);
     } catch (err) {
       console.error(err);
       setResults([]);

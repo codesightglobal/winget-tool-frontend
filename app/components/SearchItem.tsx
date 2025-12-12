@@ -11,8 +11,8 @@ interface PackageVersion {
 interface SearchItem {
   id: string;
   name: string;
-  version?: string; // Keep for backward compatibility
-  versions?: PackageVersion[]; // New: array of versions
+  version?: string;
+  versions?: PackageVersion[]; // Array of version objects
   publisher?: string;
   lastUpdated: string;
 }
@@ -30,6 +30,8 @@ export default function SearchResults({
   const [selectedVersions, setSelectedVersions] = useState<
     Record<string, string>
   >({});
+
+  console.log("SearchResults received data:", data);
 
   if (!data || data.length === 0) {
     return (
