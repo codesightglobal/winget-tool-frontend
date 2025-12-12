@@ -56,6 +56,13 @@ export default function SearchResults({
     // Get custom commands for this package
     const commands = customCommands[item.id] || "";
 
+    console.log("Downloading package:", {
+      id: item.id,
+      organization,
+      version,
+      customCommands: commands,
+    });
+
     try {
       // Request file from backend
       const res = await api.post(
@@ -146,8 +153,7 @@ export default function SearchResults({
                   >
                     {item.versions.map((v) => (
                       <option key={v.version} value={v.version}>
-                        v{v.version} - Updated{" "}
-                        {new Date(v.lastUpdated).toLocaleDateString()}
+                        Version {v.version}
                       </option>
                     ))}
                   </select>

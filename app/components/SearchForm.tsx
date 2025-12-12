@@ -61,12 +61,14 @@ export default function SearchForm() {
         (pkg: BackendPackage) => {
           if (pkg.versions && pkg.versions.length > 0) {
             // Convert string array to object array with version and lastUpdated
-            const versionObjects: PackageVersion[] = pkg.versions.map(
-              (v: string, index: number) => ({
+            // Reverse the array so latest version is first
+            const versionObjects: PackageVersion[] = pkg.versions
+              .slice()
+              .reverse()
+              .map((v: string, index: number) => ({
                 version: v,
                 lastUpdated: pkg.lastUpdated, // Use package's lastUpdated or generate dates
-              })
-            );
+              }));
 
             return {
               ...pkg,
