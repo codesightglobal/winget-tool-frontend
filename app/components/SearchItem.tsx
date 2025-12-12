@@ -3,10 +3,16 @@
 import React, { useState } from "react";
 import api from "../lib/axios";
 
+interface PackageVersion {
+  version: string;
+  lastUpdated: string;
+}
+
 interface SearchItem {
   id: string;
   name: string;
-  version?: string;
+  version?: string; // Keep for backward compatibility
+  versions?: PackageVersion[]; // New: array of versions
   publisher?: string;
   lastUpdated: string;
 }
@@ -21,6 +27,9 @@ export default function SearchResults({
   organization,
 }: SearchResultsProps) {
   const [loadingId, setLoadingId] = useState<string | null>(null);
+  const [selectedVersions, setSelectedVersions] = useState<
+    Record<string, string>
+  >({});
 
   if (!data || data.length === 0) {
     return (
@@ -37,11 +46,14 @@ export default function SearchResults({
   const handleClick = async (item: SearchItem) => {
     setLoadingId(item.id);
 
+    // Get selected version or use the current single version
+    const version = selectedVersions[item.id] || item.version;
+
     try {
       // Request file from backend
       const res = await api.post(
         "/template",
-        { id: item.id, organization },
+        { id: item.id, organization, version },
         { responseType: "blob" }
       );
 
@@ -100,6 +112,36 @@ export default function SearchResults({
                 </div>
               )}
 
+              {/* Version Selector - Show dropdown if multiple versions available */}
+              {item.versions && item.versions.length > 0 ? (
+                <div className="mb-3">
+                  <label className="block text-xs font-semibold text-gray-700 mb-2">
+                    Select Version:
+                  </label>
+                  <select
+                    value={
+                      selectedVersions[item.id] || item.versions[0].version
+                    }
+                    onChange={(e) => {
+                      e.stopPropagation();
+                      setSelectedVersions((prev) => ({
+                        ...prev,
+                        [item.id]: e.target.value,
+                      }));
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent hover:border-[#017ba8] transition-all"
+                  >
+                    {item.versions.map((v) => (
+                      <option key={v.version} value={v.version}>
+                        v{v.version} - Updated{" "}
+                        {new Date(v.lastUpdated).toLocaleDateString()}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              ) : null}
+
               <div className="flex items-center">
                 <svg
                   className="w-4 h-4 text-gray-500 mr-2"
@@ -117,24 +159,25 @@ export default function SearchResults({
                 </p>
               </div>
 
-              {/*  */}
-              <div className="flex items-center">
-                <svg
-                  className="w-4 h-4 text-gray-400 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <p className="text-xs text-gray-500">
-                  Version - {item.version}
-                </p>
-              </div>
-              {/*  */}
+              {/* Display current/selected version info */}
+              {!item.versions && item.version && (
+                <div className="flex items-center">
+                  <svg
+                    className="w-4 h-4 text-gray-400 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <p className="text-xs text-gray-500">
+                    Version - {item.version}
+                  </p>
+                </div>
+              )}
             </div>
 
             <div className="ml-4 flex items-center">

@@ -5,11 +5,17 @@ import api from "../lib/axios";
 import SearchResults from "./SearchItem";
 import debounce from "lodash/debounce";
 
+interface PackageVersion {
+  version: string;
+  lastUpdated: string;
+}
+
 interface SearchItem {
   id: string;
   name: string;
   publisher?: string;
-  version?: string;
+  version?: string; // Keep for backward compatibility with current backend
+  versions?: PackageVersion[]; // New: array of versions from updated backend
   lastUpdated: string;
 }
 
