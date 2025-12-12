@@ -30,6 +30,9 @@ export default function SearchResults({
   const [selectedVersions, setSelectedVersions] = useState<
     Record<string, string>
   >({});
+  const [customCommands, setCustomCommands] = useState<Record<string, string>>(
+    {}
+  );
 
   console.log("SearchResults received data:", data);
 
@@ -50,12 +53,19 @@ export default function SearchResults({
 
     // Get selected version or use the current single version
     const version = selectedVersions[item.id] || item.version;
+    // Get custom commands for this package
+    const commands = customCommands[item.id] || "";
 
     try {
       // Request file from backend
       const res = await api.post(
         "/template",
-        { id: item.id, organization, version },
+        {
+          id: item.id,
+          organization,
+          version,
+          customCommands: commands,
+        },
         { responseType: "blob" }
       );
 
@@ -143,6 +153,28 @@ export default function SearchResults({
                   </select>
                 </div>
               ) : null}
+
+              {/* Custom Commands Textarea */}
+              <div className="mb-3">
+                <label className="block text-xs font-semibold text-gray-700 mb-2">
+                  Custom Commands (Optional):
+                </label>
+                <textarea
+                  value={customCommands[item.id] || ""}
+                  onChange={(e) => {
+                    e.stopPropagation();
+                    setCustomCommands((prev) => ({
+                      ...prev,
+                      [item.id]: e.target.value,
+                    }));
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                  onFocus={(e) => e.stopPropagation()}
+                  placeholder="Enter custom install/uninstall commands..."
+                  rows={3}
+                  className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent hover:border-[#017ba8] transition-all resize-none"
+                />
+              </div>
 
               <div className="flex items-center">
                 <svg
