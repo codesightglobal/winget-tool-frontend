@@ -97,25 +97,25 @@ export default function SearchResults({
         <div
           key={item.id}
           onClick={() => handleClick(item)}
-          className="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl hover:border-[#017ba8]/30 transition-all duration-300 cursor-pointer group transform hover:-translate-y-1"
+          className="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl hover:border-[#017ba8]/30 transition-all duration-300 cursor-pointer group transform hover:-translate-y-1 overflow-hidden"
         >
-          <div className="flex justify-between items-start">
-            <div className="flex-1">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-[#017ba8]/10 rounded-xl flex items-center justify-center mr-4">
+          <div className="flex justify-between items-start min-w-0">
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center mb-4 min-w-0">
+                <div className="w-12 h-12 bg-[#017ba8]/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
                   <span className="text-[#017ba8] text-2xl">📦</span>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#017ba8] transition-colors">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#017ba8] transition-colors break-words overflow-wrap-anywhere">
                     {item.name}
                   </h3>
                 </div>
               </div>
 
               {item.publisher && (
-                <div className="flex items-center mb-3">
+                <div className="flex items-center mb-3 min-w-0">
                   <svg
-                    className="w-4 h-4 text-gray-500 mr-2"
+                    className="w-4 h-4 text-gray-500 mr-2 flex-shrink-0"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -125,7 +125,7 @@ export default function SearchResults({
                       clipRule="evenodd"
                     />
                   </svg>
-                  <p className="text-sm text-gray-600 font-medium">
+                  <p className="text-sm text-gray-600 font-medium truncate min-w-0">
                     {item.publisher}
                   </p>
                 </div>
@@ -133,7 +133,7 @@ export default function SearchResults({
 
               {/* Version Selector - Show dropdown if multiple versions available */}
               {item.versions && item.versions.length > 0 ? (
-                <div className="mb-3">
+                <div className="mb-3 w-full">
                   <label className="block text-xs font-semibold text-gray-700 mb-2">
                     Select Version:
                   </label>
@@ -149,7 +149,7 @@ export default function SearchResults({
                       }));
                     }}
                     onClick={(e) => e.stopPropagation()}
-                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent hover:border-[#017ba8] transition-all"
+                    className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent hover:border-[#017ba8] transition-all overflow-hidden"
                   >
                     {item.versions.map((v) => (
                       <option key={v.version} value={v.version}>
@@ -161,7 +161,7 @@ export default function SearchResults({
               ) : null}
 
               {/* Custom Commands Textarea */}
-              <div className="mb-3">
+              <div className="mb-3 w-full max-w-full">
                 <label className="block text-xs font-semibold text-gray-700 mb-2">
                   Custom Commands (Optional):
                 </label>
@@ -178,7 +178,7 @@ export default function SearchResults({
                   onFocus={(e) => e.stopPropagation()}
                   placeholder="Enter custom install/uninstall commands..."
                   rows={3}
-                  className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent hover:border-[#017ba8] transition-all resize-none"
+                  className="w-full max-w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#017ba8] focus:border-transparent hover:border-[#017ba8] transition-all resize-none break-words"
                 />
               </div>
 
